@@ -3,6 +3,7 @@ using AFAConsultant.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AFAConsultant.Migrations
 {
     [DbContext(typeof(AppdbContext))]
-    partial class AppdbContextModelSnapshot : ModelSnapshot
+    [Migration("20241231201249_second")]
+    partial class second
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,18 +55,6 @@ namespace AFAConsultant.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("tbl_aboutus");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "This is description",
-                            Success_Rate = 100,
-                            Title = "ABOUT1",
-                            Total_Team_Members = 21,
-                            Total_Visa_Categories = 31,
-                            Total_Visa_Processes = 2000
-                        });
                 });
 
             modelBuilder.Entity("AFAConsultant.Models.Contactus", b =>
@@ -118,22 +108,6 @@ namespace AFAConsultant.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("tbl_contactus");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Address1 = "Kotli",
-                            Address2 = "kotli",
-                            Email1 = "naseer@gmail.com",
-                            Email2 = "insram@gmail.com",
-                            FacebookLink = "facebook.com",
-                            InstagramLink = "instagram.com",
-                            PhoneNumber1 = "12345",
-                            PhoneNumber2 = "12345",
-                            TiktokLink = "tiktok.com",
-                            TwitterLink = "twitter.com"
-                        });
                 });
 
             modelBuilder.Entity("AFAConsultant.Models.Countries", b =>
@@ -159,15 +133,6 @@ namespace AFAConsultant.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("tbl_countries");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Country_PicUrl = "image.jpg",
-                            Flag_PicUrl = "image.jpg",
-                            Name = "United Kingdom"
-                        });
                 });
 
             modelBuilder.Entity("AFAConsultant.Models.Professionals", b =>
@@ -202,17 +167,6 @@ namespace AFAConsultant.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("tbl_professionals");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "This is Muhammad Naseer",
-                            Email = "naseer@gmail.com",
-                            Name = "Naseer",
-                            PhoneNumber = "12345",
-                            PicUrl = "image.jpg"
-                        });
                 });
 
             modelBuilder.Entity("AFAConsultant.Models.QueryMessage", b =>
@@ -246,17 +200,6 @@ namespace AFAConsultant.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("tbl_querymessages");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Email = "naseershabbir@gmail.com",
-                            Message = "This is my Message",
-                            Name = "Naseer",
-                            PhoneNumber = "12345",
-                            Subject = "Problem"
-                        });
                 });
 
             modelBuilder.Entity("AFAConsultant.Models.Review", b =>
@@ -290,17 +233,6 @@ namespace AFAConsultant.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("tbl_review");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Designation = "programmer",
-                            Message = "Good",
-                            Name = "Muhammad Naseer",
-                            PicUrl = "image.jpg",
-                            Rating = 4
-                        });
                 });
 
             modelBuilder.Entity("AFAConsultant.Models.Settings", b =>
@@ -322,14 +254,6 @@ namespace AFAConsultant.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("tbl_settings");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            LogoFavicon = "image.jpg",
-                            Name = "AFAConsultant"
-                        });
                 });
 
             modelBuilder.Entity("AFAConsultant.Models.Slider", b =>
@@ -356,15 +280,6 @@ namespace AFAConsultant.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("tbl_slider");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "This is Slider",
-                            PicURL = "image.jpg",
-                            Title = "Slider"
-                        });
                 });
 
             modelBuilder.Entity("AFAConsultant.Models.User", b =>
@@ -396,15 +311,6 @@ namespace AFAConsultant.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("tbl_user");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            FullName = "Muhammad Naseer",
-                            Password = "admin",
-                            Username = "admin"
-                        });
                 });
 #pragma warning restore 612, 618
         }

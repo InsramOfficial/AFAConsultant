@@ -1,0 +1,64 @@
+﻿@page
+@model AFAConsultant.Pages.Admin.About.UpdateAboutusModel
+@{
+}
+
+<title>@ViewData["Title"]</title>
+
+
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h3 class="text-center">Edit Aboutus Information</h3>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <!-- Left Column -->
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label asp-for="aboutus.Title" class="form-label"></label>
+                    <input class="form-control" asp-for="aboutus.Title" placeholder="Enter Title">
+                    <span asp-validation-for="aboutus.Title" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="aboutus.Total_Team_Members" class="form-label"></label>
+                    <input class="form-control" asp-for="aboutus.Total_Team_Members" placeholder="Enter Total Team Members">
+                    <span asp-validation-for="aboutus.Total_Team_Members" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="aboutus.Total_Visa_Processes" class="form-label"></label>
+                    <input class="form-control" asp-for="aboutus.Total_Visa_Processes" placeholder="Enter Total Visa Processes">
+                    <span asp-validation-for="aboutus.Total_Visa_Processes" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label asp-for="aboutus.Success_Rate" class="form-label"></label>
+                    <input class="form-control" asp-for="aboutus.Success_Rate" placeholder="Enter Success Rate">
+                    <span asp-validation-for="aboutus.Success_Rate" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="aboutus.Total_Visa_Categories" class="form-label"></label>
+                    <input class="form-control" asp-for="aboutus.Total_Visa_Categories" placeholder="Enter Total Visa Categories">
+                    <span asp-validation-for="aboutus.Total_Visa_Categories" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="aboutus.Description" class="form-label"></label>
+                    <textarea class="form-control" asp-for="aboutus.Description" placeholder="Enter Description" rows="4.9"></textarea>
+                    <input type="hidden" asp-for="aboutus.Id" />
+                    <span asp-validation-for="aboutus.Description" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-4 text-center">
+                <input type="submit" value="Update Aboutus Information" class="btn btn-success">
+            </div>
+        </div>
+    </form>
+</div>
