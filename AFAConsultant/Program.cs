@@ -1,3 +1,6 @@
+using AFAConsultant.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace AFAConsultant
 {
     public class Program
@@ -8,6 +11,10 @@ namespace AFAConsultant
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+
+            var connectionstring = builder.Configuration.GetConnectionString("myconstring");
+
+            builder.Services.AddDbContext<AppdbContext>(options => options.UseSqlServer(connectionstring));
 
             var app = builder.Build();
 
