@@ -24,6 +24,6 @@ namespace AFAConsultant.Models
         [Display(Name = "Image")]
         public string ImageName { get; set; }
         [NotMapped]
-        public IFormFile Image { get; set; }
+        public IFormFile? Image { get; set; }
     }
 }

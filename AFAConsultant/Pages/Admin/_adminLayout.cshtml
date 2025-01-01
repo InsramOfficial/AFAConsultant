@@ -214,7 +214,7 @@
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a> 
-                                <a class="dropdown-item" asp-page="/Admin/Websetting/Settings" style="color: #4e73df;">
+                                <a class="dropdown-item" asp-page="/Admin/Websettings/Index" style="color: #4e73df;">
                                     <i class="fas fa-cog fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Settings
                                 </a>
@@ -264,7 +264,10 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a asp-page="/Admin/Logout" class="btn btn-danger">Logout</a>
+                    @* <a asp-page="/Admin/Logout" class="btn btn-danger">Logout</a> *@
+                    <form asp-page="/Admin/Login" asp-page-handler="Logout" method="Post">
+                        <button class="btn btn-danger" type="submit">Logout</button>
+                    </form>
                 </div>
             </div>
         </div>
