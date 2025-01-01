@@ -3,6 +3,7 @@ using AFAConsultant.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AFAConsultant.Migrations
 {
     [DbContext(typeof(AppdbContext))]
-    partial class AppdbContextModelSnapshot : ModelSnapshot
+    [Migration("20250101144212_messageseeding")]
+    partial class messageseeding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -319,51 +321,6 @@ namespace AFAConsultant.Migrations
                         new
                         {
                             Id = 1,
-                            Designation = "programmer",
-                            Message = "Good",
-                            Name = "Muhammad Naseer",
-                            PicUrl = "image.jpg",
-                            Rating = 4
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Designation = "programmer",
-                            Message = "Good",
-                            Name = "Muhammad Naseer",
-                            PicUrl = "image.jpg",
-                            Rating = 4
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Designation = "programmer",
-                            Message = "Good",
-                            Name = "Muhammad Naseer",
-                            PicUrl = "image.jpg",
-                            Rating = 4
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Designation = "programmer",
-                            Message = "Good",
-                            Name = "Muhammad Naseer",
-                            PicUrl = "image.jpg",
-                            Rating = 4
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Designation = "programmer",
-                            Message = "Good",
-                            Name = "Muhammad Naseer",
-                            PicUrl = "image.jpg",
-                            Rating = 4
-                        },
-                        new
-                        {
-                            Id = 6,
                             Designation = "programmer",
                             Message = "Good",
                             Name = "Muhammad Naseer",

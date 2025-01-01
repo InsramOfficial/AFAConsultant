@@ -36,10 +36,18 @@ namespace AFAConsultant.Data
                 new Professionals { Id = 1, Name = "Naseer", PhoneNumber = "12345", Email = "naseer@gmail.com", Description = "This is Muhammad Naseer",PicUrl = "image.jpg" }
                 );
             modelBuilder.Entity<QueryMessage>().HasData(
-                new QueryMessage { Id = 1, Name = "Naseer", Email = "naseershabbir@gmail.com", PhoneNumber = "12345", Subject = "Problem", Message = "This is my Message" }
+                new QueryMessage { Id = 1, Name = "Naseer", Email = "naseershabbir@gmail.com", PhoneNumber = "12345", Subject = "Problem", Message = "This is my Message" },
+                new QueryMessage { Id = 2, Name = "Naseer", Email = "naseershabbir@gmail.com", PhoneNumber = "12345", Subject = "Problem", Message = "This is my Message" },
+                new QueryMessage { Id = 3, Name = "Naseer", Email = "naseershabbir@gmail.com", PhoneNumber = "12345", Subject = "Problem", Message = "This is my Message" },
+                new QueryMessage { Id = 4, Name = "Naseer", Email = "naseershabbir@gmail.com", PhoneNumber = "12345", Subject = "Problem", Message = "This is my Message" }
                 );
             modelBuilder.Entity<Review>().HasData(
-                new Review { Id = 1, Name = "Muhammad Naseer", Designation = "programmer", Message = "Good", Rating = 4,PicUrl = "image.jpg" }
+                new Review { Id = 1, Name = "Muhammad Naseer", Designation = "programmer", Message = "Good", Rating = 4,PicUrl = "image.jpg" },
+                new Review { Id = 2, Name = "Muhammad Naseer", Designation = "programmer", Message = "Good", Rating = 4,PicUrl = "image.jpg" },
+                new Review { Id = 3, Name = "Muhammad Naseer", Designation = "programmer", Message = "Good", Rating = 4,PicUrl = "image.jpg" },
+                new Review { Id = 4, Name = "Muhammad Naseer", Designation = "programmer", Message = "Good", Rating = 4,PicUrl = "image.jpg" },
+                new Review { Id = 5, Name = "Muhammad Naseer", Designation = "programmer", Message = "Good", Rating = 4,PicUrl = "image.jpg" },
+                new Review { Id = 6, Name = "Muhammad Naseer", Designation = "programmer", Message = "Good", Rating = 4,PicUrl = "image.jpg" }
                 );
             modelBuilder.Entity<Settings>().HasData(
                 new Settings { Id = 1, Name = "AFAConsultant",LogoFavicon = "image.jpg" }

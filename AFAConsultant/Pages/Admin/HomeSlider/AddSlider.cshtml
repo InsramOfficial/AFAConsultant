@@ -1,0 +1,46 @@
+﻿@page
+@model AFAConsultant.Pages.Admin.HomeSlider.AddSliderModel
+@{
+    ViewData["title"] = "Add Slider - AFAC";
+}
+<title>
+    @ViewData["title"]
+</title>
+
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1 class="text-center">Add Slider</h1>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <!-- Left Column -->
+            <div class="col-6">
+                <div class="mb-3">
+                    <label asp-for="Slider.Title" class="form-label"></label>
+                    <input class="form-control" asp-for="Slider.Title" placeholder="Enter Title">
+                    <span asp-validation-for="Slider.Title" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Slider.Description" class="form-label"></label>
+                    <textarea class="form-control" asp-for="Slider.Description" placeholder="Enter Description" rows="4.9"></textarea>
+                    <span asp-validation-for="Slider.Description" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Slider.PicURL" class="form-label"></label>
+                    <input class="form-control" type="file" asp-for="Slider.Picture">
+                    <span asp-validation-for="Slider.PicURL" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-2 mb-3">
+            <div class="col-md-4 text-center">
+                <a href="/Admin/HomeSlider/Index" class="btn btn-secondary">Back</a>
+                <input type="submit" value="Add Slider" class="btn btn-primary">
+            </div>
+        </div>
+    </form>
+</div>

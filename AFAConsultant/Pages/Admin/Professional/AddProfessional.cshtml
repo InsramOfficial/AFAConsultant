@@ -1,0 +1,56 @@
+﻿@page
+@model AFAConsultant.Pages.Admin.Professional.AddProfessionalModel
+@{
+    ViewData["title"] = "Add Professional - AFAC";
+}
+<title>
+    @ViewData["title"]
+</title>
+
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1 class="text-center">Add Professional</h1>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <!-- Left Column -->
+            <div class="col-6">
+                <div class="mb-3">
+                    <label asp-for="Professional.Name" class="form-label"></label>
+                    <input class="form-control" asp-for="Professional.Name" placeholder="Enter Name">
+                    <span asp-validation-for="Professional.Name" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Professional.Description" class="form-label"></label>
+                    <textarea class="form-control" asp-for="Professional.Description" placeholder="Enter Description" rows="4.9"></textarea>
+                    <span asp-validation-for="Professional.Description" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Professional.PhoneNumber" class="form-label"></label>
+                    <input class="form-control" asp-for="Professional.PhoneNumber" placeholder="Enter Phone Number">
+                    <span asp-validation-for="Professional.PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Professional.Email" class="form-label"></label>
+                    <input class="form-control" asp-for="Professional.Email" placeholder="Enter Email">
+                    <span asp-validation-for="Professional.Email" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Professional.PicUrl" class="form-label"></label>
+                    <input class="form-control" type="file" asp-for="Professional.Picture">
+                    <span asp-validation-for="Professional.PicUrl" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-2 mb-3">
+            <div class="col-md-4 text-center">
+                <a href="/Admin/Professional/Index" class="btn btn-secondary">Back</a>
+                <input type="submit" value="Add Professional" class="btn btn-primary">
+            </div>
+        </div>
+    </form>
+</div>

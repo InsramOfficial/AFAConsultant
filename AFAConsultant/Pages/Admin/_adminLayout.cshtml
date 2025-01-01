@@ -54,22 +54,22 @@
 
             <!-- Nav Item - Home Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHome"
-                   aria-expanded="true" aria-controls="collapseHome">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAboutUs"
+                   aria-expanded="true" aria-controls="collapseAboutUs">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Home Details</span>
+                    <span>AboutUs</span>
                 </a>
-                <div id="collapseHome" class="collapse" aria-labelledby="headingHome"
+                <div id="collapseAboutUs" class="collapse" aria-labelledby="headingAboutUs"
                      data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">About Home Details</h6>
-                        <a class="collapse-item" href="/admin/HomeDetails/Index">Show Home Details</a>
+                        <h6 class="collapse-header">AboutUs</h6>
+                        <a class="collapse-item" href="/Admin/About/UpdateAboutus">Update AboutUs</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            @* <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAboutUs"
                    aria-expanded="true" aria-controls="collapseAboutUs">
                     <i class="fas fa-fw fa-cog"></i>
@@ -80,7 +80,7 @@
                         <a class="collapse-item" href="/Admin/UpdateAboutUs">Update About Us</a>
                     </div>
                 </div>
-            </li>
+            </li> *@
             <!-- Nav Item - Pages Collapse Contact Us -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
@@ -90,24 +90,24 @@
                 </a>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                      
-                        <a class="collapse-item" href="/Admin/ContactUsDetails/EditContactUs">Update Contact Info</a>
+                        <h6 class="collapse-header">About ContactUs</h6>
+                        <a class="collapse-item" href="/Admin/Contact/UpdateContactUs">Update Contact Info</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCourses"
-                   aria-expanded="true" aria-controls="collapseCourses">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCountry"
+                   aria-expanded="true" aria-controls="collapseCountry">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Courses</span>
+                    <span>Country</span>
                 </a>
-                <div id="collapseCourses" class="collapse" aria-labelledby="headingUtilities"
+                <div id="collapseCountry" class="collapse" aria-labelledby="headingCountry"
                      data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">About Courses</h6>
-                        <a class="collapse-item" href="/admin/ShowCourses">Show Courses</a>
+                        <h6 class="collapse-header">About Countries</h6>
+                        <a class="collapse-item" href="/Admin/Country/Index">Show Countries</a>
                     </div>
                 </div>
             </li>
@@ -119,11 +119,11 @@
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Professional</span>
                 </a>
-                <div id="collapseProfessionals" class="collapse" aria-labelledby="headingUtilities"
+                <div id="collapseProfessionals" class="collapse" aria-labelledby="headingProfessional"
                      data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">About Professionals</h6>
-                        <a class="collapse-item" href="/admin/OurProfessionalDetails/Index">Show Professionals</a>
+                        <a class="collapse-item" href="/Admin/Professional/Index">Show Professionals</a>
                     </div>
                 </div>
             </li>
@@ -133,13 +133,43 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStudentReview"
                    aria-expanded="true" aria-controls="collapseStudentReview">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Student Review</span>
+                    <span>Review</span>
                 </a>
-                <div id="collapseStudentReview" class="collapse" aria-labelledby="headingUtilities"
+                <div id="collapseStudentReview" class="collapse" aria-labelledby="headingReview"
                      data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">About Reviews</h6>
-                        <a class="collapse-item" href="/admin/ShowStudentReview">Show Reviews</a>
+                        <a class="collapse-item" href="/Admin/Reviews/Index">Show Reviews</a>
+                    </div>
+                </div>
+            </li>
+            <!-- Nav Item - Professionals Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSlider"
+                   aria-expanded="true" aria-controls="collapseSlider">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Home Slider</span>
+                </a>
+                <div id="collapseSlider" class="collapse" aria-labelledby="headingSlider"
+                     data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">About Sliders</h6>
+                        <a class="collapse-item" href="/Admin/HomeSlider/Index">Show Sliders</a>
+                    </div>
+                </div>
+            </li>
+            <!-- Nav Item - Professionals Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMessage"
+                   aria-expanded="true" aria-controls="collapseMessage">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Messages</span>
+                </a>
+                <div id="collapseMessage" class="collapse" aria-labelledby="headingMessage"
+                     data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">About Messages</h6>
+                        <a class="collapse-item" href="/Admin/QueryMessages/Index">Show Messages</a>
                     </div>
                 </div>
             </li>

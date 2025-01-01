@@ -1,0 +1,63 @@
+﻿@page
+@model AFAConsultant.Pages.Admin.Professional.UpdateProfessionalModel
+@{
+    ViewData["title"] = "Update Professional - AFAC";
+}
+
+<title>
+    @ViewData["title"]
+</title>
+
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1 class="text-center">Update Professional</h1>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <!-- Left Column -->
+            <div class="col-6">
+                <div class="mb-3">
+                    <label asp-for="Professional.Name" class="form-label"></label>
+                    <input class="form-control" asp-for="Professional.Name" placeholder="Enter Name">
+                    <span asp-validation-for="Professional.Name" class="text-danger"></span>
+                    <input type="hidden" asp-for="Professional.Id"/>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Professional.Description" class="form-label"></label>
+                    <textarea class="form-control" asp-for="Professional.Description" placeholder="Enter Description" rows="4.9"></textarea>
+                    <span asp-validation-for="Professional.Description" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Professional.PhoneNumber" class="form-label"></label>
+                    <input class="form-control" asp-for="Professional.PhoneNumber" placeholder="Enter Phone Number">
+                    <span asp-validation-for="Professional.PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Professional.Email" class="form-label"></label>
+                    <input class="form-control" asp-for="Professional.Email" placeholder="Enter Email">
+                    <span asp-validation-for="Professional.Email" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <span>
+                        <img src="~/images/@TempData["picurl"]" alt="Professional Image" style="max-width: 100px; max-height: 50px;" />
+                    </span>
+                    <br />
+                    <label asp-for="Professional.PicUrl" class="form-label"></label>
+                    <input class="form-control" type="file" asp-for="Professional.Picture">
+                    <input class="form-control" type="hidden" asp-for="Professional.PicUrl">
+                    <span asp-validation-for="Professional.PicUrl" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-3 mb-3">
+            <div class="col-md-4 text-center">
+                <a href="/Admin/Professional/Index" class="btn btn-secondary">Back</a>
+                <input type="submit" value="Update Professional" class="btn btn-success">
+            </div>
+        </div>
+    </form>
+</div>
