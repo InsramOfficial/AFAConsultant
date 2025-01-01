@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -16,7 +17,21 @@
     <link href="~/Admin_files/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="~/Admin_files/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="~/Admin_files/css/ToastStyleSheet.css" rel="stylesheet">
-    
+    <style>
+        .sidebar-user-info {
+            margin: 20px 0;
+        }
+
+            .sidebar-user-info img {
+                border-radius: 50%; /* Ensures the image is circular */
+            }
+
+        .user-name {
+            color: white; /* Adjust color as needed */
+            font-weight: bold;
+        }
+
+    </style>
     
 </head>
 
@@ -26,13 +41,14 @@
 
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
+            <!-- Sidebar - User Info -->
+            
+            @await Component.InvokeAsync("Sidebar")
+            @*<!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                
-                <div class="sidebar-brand-text mx-3">AFAConsultant</div>
-            </a>
-
+                <div class="sidebar-brand-text ">AFAConsultant</div>
+            </a> *@
+            
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
@@ -205,12 +221,15 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-between" href="#" id="userDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #4e73df; font-weight: bold;">
-                                <span class="mr-2 d-block d-lg-inline" style="font-size: 1rem; margin-right: 8px;">Insram ul Haq</span>
-                                <i class="fas fa-user-circle" style="font-size: 1.5rem; color: #4e73df;"></i>
+                                @* <i class="fas fa-user-circle" style="font-size: 1.5rem; color: #4e73df;"></i> *@
+                                @* <span class="mr-2 d-block d-lg-inline" style="font-size: 1rem; margin-right: 8px;">Insram ul Haq</span>
+                                <img class="img-profile rounded-circle"
+                                     src="img/undraw_profile.svg"> *@
+                                     @await Component.InvokeAsync("Users")
                             </a>
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                  aria-labelledby="userDropdown">
-                                <a class="dropdown-item" asp-page="/Admin/ShowProfile" style="color: #4e73df;">
+                                <a class="dropdown-item" asp-page="/Admin/UserProfile/Index" style="color: #4e73df;">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a> 

@@ -56,7 +56,8 @@ namespace AFAConsultant.Data
                 new Slider { Id = 1, Title = "Slider", Description = "This is Slider",PicURL = "image.jpg" }
                 );
             modelBuilder.Entity<User>().HasData(
-                new User { Id = 1, Username = "admin", Password = "admin", FullName = "Muhammad Naseer",ImageName = "naseer.jpg"}
+                new User { Id = 1, Username = "admin", Password = "admin", FullName = "Muhammad Naseer",ImageName = "naseer.jpg"},
+                new User { Id = 2, Username = "admin", Password = "admin", FullName = "Muhammad Naseer",ImageName = "naseer.jpg"}
                 );
         }
 

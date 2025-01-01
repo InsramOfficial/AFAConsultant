@@ -11,7 +11,10 @@ namespace AFAConsultant
 
             // Add services to the container.
             builder.Services.AddRazorPages();
-            builder.Services.AddSession();
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+            });
 
             var connectionstring = builder.Configuration.GetConnectionString("myconstring");
 
@@ -29,12 +32,11 @@ namespace AFAConsultant
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseSession();
-
             app.UseRouting();
+            
 
             app.UseAuthorization();
-
+            app.UseSession();
             app.MapRazorPages();
 
             app.Run();

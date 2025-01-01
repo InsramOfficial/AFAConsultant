@@ -39,6 +39,7 @@ namespace AFAConsultant.Pages.Admin
                     {
                         HttpContext.Session.SetString("FullName", user.FullName);
                         HttpContext.Session.SetString("flag", "true");
+                        HttpContext.Session.SetString("userid", user.Id.ToString());
                         TempData["success"] = "Login successful!";
                         return RedirectToPage("/Admin/index");
                     }

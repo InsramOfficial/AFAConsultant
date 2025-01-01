@@ -474,6 +474,14 @@ namespace AFAConsultant.Migrations
                             ImageName = "naseer.jpg",
                             Password = "admin",
                             Username = "admin"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            FullName = "Muhammad Naseer",
+                            ImageName = "naseer.jpg",
+                            Password = "admin",
+                            Username = "admin"
                         });
                 });
 #pragma warning restore 612, 618
