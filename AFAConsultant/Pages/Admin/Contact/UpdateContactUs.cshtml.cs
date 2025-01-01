@@ -4,23 +4,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace AFAConsultant.Pages.Admin.About
+namespace AFAConsultant.Pages.Admin.Contact
 {
-    public class UpdateAboutusModel : PageModel
+    public class UpdateContactUsModel : PageModel
     {
         private readonly AppdbContext db;
-
-        public Aboutus aboutus {  get; set; }
-        public UpdateAboutusModel(AppdbContext _db)
+        public Contactus contact {  get; set; }
+        public UpdateContactUsModel(AppdbContext _db)
         {
             db = _db;
         }
         public async Task OnGet()
         {
-            aboutus = await db.tbl_aboutus.FirstOrDefaultAsync();
+            contact = await db.tbl_contactus.FirstOrDefaultAsync();
         }
 
-        public IActionResult Onpost(Aboutus aboutus)
+        public IActionResult OnPost(Contactus contact)
         {
             if (!ModelState.IsValid)
             {
@@ -29,9 +28,9 @@ namespace AFAConsultant.Pages.Admin.About
             }
             try
             {
-                db.tbl_aboutus.Update(aboutus);
+                db.tbl_contactus.Update(contact);
                 db.SaveChanges();
-                TempData["success"] = "Record Updated Successfully";
+                TempData["success"] = "Data Updated Successfully";
                 return RedirectToPage();
             }
             catch (Exception ex)

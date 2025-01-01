@@ -145,11 +145,9 @@ namespace AFAConsultant.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Country_PicUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Flag_PicUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -196,7 +194,6 @@ namespace AFAConsultant.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PicUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -346,7 +343,6 @@ namespace AFAConsultant.Migrations
                         .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("PicURL")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
@@ -381,6 +377,7 @@ namespace AFAConsultant.Migrations
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("ImageName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
@@ -402,6 +399,7 @@ namespace AFAConsultant.Migrations
                         {
                             Id = 1,
                             FullName = "Muhammad Naseer",
+                            ImageName = "naseer.jpg",
                             Password = "admin",
                             Username = "admin"
                         });

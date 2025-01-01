@@ -1,0 +1,55 @@
+﻿@page
+@model AFAConsultant.Pages.Admin.Country.UpdateCountryModel
+@{
+    ViewData["title"] = "Update Country - AFAC";
+}
+
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1 class="text-center">Update Country</h1>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <!-- Left Column -->
+            <div class="col-6">
+                <div class="mb-3">
+                    <label asp-for="Country.Name" class="form-label"></label>
+                    <input class="form-control" asp-for="Country.Name" placeholder="Enter Name">
+                    <span asp-validation-for="Country.Name" class="text-danger"></span>
+                    <input type="hidden" asp-for="Country.Id" />
+                </div>
+                <div class="mb-3">
+                    <span>
+                        <img src="~/images/@TempData["flagpic"]" alt="Flag Image" style="max-width: 100px; max-height: 50px;" />
+                    </span>
+                    <br />
+                    <label asp-for="Country.Flag_PicUrl" class="form-label"></label>
+                    <input class="form-control" type="file" asp-for="Country.FlagPicture">
+                    <input class="form-control" type="hidden" asp-for="Country.Flag_PicUrl">
+                    <span asp-validation-for="Country.Flag_PicUrl" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <span>
+                        <img src="~/images/@TempData["countrypic"]" alt="Country Image" style="max-width: 100px; max-height: 50px;" />
+                    </span>
+                    <br />
+                    <label asp-for="Country.Country_PicUrl" class="form-label"></label>
+                    <input class="form-control" type="file" asp-for="Country.CountryPicture">
+                    <input class="form-control" type="hidden" asp-for="Country.Country_PicUrl">
+                    <span asp-validation-for="Country.Country_PicUrl" class="text-danger"></span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-4 text-center">
+                <a href="/Admin/Country/Index" class="btn btn-secondary">Back</a>
+                <input type="submit" value="Update Country" class="btn btn-primary">
+            </div>
+        </div>
+    </form>
+</div>

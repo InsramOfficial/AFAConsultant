@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
 namespace AFAConsultant.Models
 {
@@ -11,13 +12,15 @@ namespace AFAConsultant.Models
         [Display(Name = "Name")]
         public string Name { get; set; }
         [Display(Name = "Flag Image")]
-        public string Flag_PicUrl { get; set; }
+        [AllowNull]
+        public string? Flag_PicUrl { get; set; }
         [Display(Name = "Country Image")]
-        public string Country_PicUrl { get; set; }
+        [AllowNull]
+        public string? Country_PicUrl { get; set; }
         [NotMapped]
-        public IFormFile FlagPicture { get; set; }
+        public IFormFile? FlagPicture { get; set; }
         [NotMapped]
-        public IFormFile CountryPicture { get; set; }
+        public IFormFile? CountryPicture { get; set; }
 
     }
 }

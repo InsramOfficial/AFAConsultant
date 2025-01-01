@@ -22,8 +22,8 @@ namespace AFAConsultant.Models
         [StringLength(200, ErrorMessage = "Full Name cannot exceed 200 characters.")]
         public string? FullName { get; set; }
         [Display(Name = "Image")]
-        public string? ImageName { get; set; }
+        public string ImageName { get; set; }
         [NotMapped]
-        public IFormFile? Image { get; set; }
+        public IFormFile Image { get; set; }
     }
 }

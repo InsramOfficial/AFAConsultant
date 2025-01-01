@@ -1,0 +1,83 @@
+﻿@page
+@model AFAConsultant.Pages.Admin.Contact.UpdateContactUsModel
+@{
+    ViewData["title"] = "Update ContactUs - AFAC";
+}
+<title>@ViewData["title"]</title>
+
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h3 class="text-center">Edit Contact Information</h3>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <!-- Left Column -->
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label asp-for="contact.Address1" class="form-label"></label>
+                    <input class="form-control" asp-for="contact.Address1" placeholder="Enter Address">
+                    <span asp-validation-for="contact.Address1" class="text-danger"></span>
+                    <input type="hidden" asp-for="contact.Id" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="contact.Address2" class="form-label"></label>
+                    <input class="form-control" asp-for="contact.Address2" placeholder="Enter Second Address">
+                    <span asp-validation-for="contact.Address2" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="contact.PhoneNumber1" class="form-label"></label>
+                    <input class="form-control" asp-for="contact.PhoneNumber1" placeholder="Enter Phone Number">
+                    <span asp-validation-for="contact.PhoneNumber1" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="contact.PhoneNumber2" class="form-label"></label>
+                    <input class="form-control" asp-for="contact.PhoneNumber2" placeholder="Enter Second Phone Number">
+                    <span asp-validation-for="contact.PhoneNumber2" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="contact.Email1" class="form-label"></label>
+                    <input class="form-control" asp-for="contact.Email1" placeholder="Enter Email Address">
+                    <span asp-validation-for="contact.Email1" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label asp-for="contact.Email2" class="form-label"></label>
+                    <input class="form-control" asp-for="contact.Email2" placeholder="Enter Second Email Address">
+                    <span asp-validation-for="contact.Email2" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="contact.FacebookLink" class="form-label"></label>
+                    <input class="form-control" asp-for="contact.FacebookLink" placeholder="Enter Facebook URL">
+                    <span asp-validation-for="contact.FacebookLink" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="contact.TwitterLink" class="form-label"></label>
+                    <input class="form-control" asp-for="contact.TwitterLink" placeholder="Enter Twitter URL">
+                    <span asp-validation-for="contact.TwitterLink" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="contact.InstagramLink" class="form-label"></label>
+                    <input class="form-control" asp-for="contact.InstagramLink" placeholder="Enter Instagram URL">
+                    <span asp-validation-for="contact.InstagramLink" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="contact.TiktokLink" class="form-label"></label>
+                    <input class="form-control" asp-for="contact.TiktokLink" placeholder="Enter TikTok URL">
+                    <span asp-validation-for="contact.TiktokLink" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-4 text-center">
+                <input type="submit" value="Update Contact Information" class="btn btn-success mb-4">
+            </div>
+        </div>
+    </form>
+</div>

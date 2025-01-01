@@ -4,7 +4,7 @@
 
 namespace AFAConsultant.Migrations
 {
-    public partial class second : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -55,8 +55,8 @@ namespace AFAConsultant.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Flag_PicUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Country_PicUrl = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Flag_PicUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Country_PicUrl = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -73,7 +73,7 @@ namespace AFAConsultant.Migrations
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
-                    PicUrl = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    PicUrl = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -136,7 +136,7 @@ namespace AFAConsultant.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
-                    PicURL = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    PicURL = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -152,12 +152,57 @@ namespace AFAConsultant.Migrations
                     Username = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Password = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     FullName = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    ImageName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    ImageName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_tbl_user", x => x.Id);
                 });
+
+            migrationBuilder.InsertData(
+                table: "tbl_aboutus",
+                columns: new[] { "Id", "Description", "Success_Rate", "Title", "Total_Team_Members", "Total_Visa_Categories", "Total_Visa_Processes" },
+                values: new object[] { 1, "This is description", 100, "ABOUT1", 21, 31, 2000 });
+
+            migrationBuilder.InsertData(
+                table: "tbl_contactus",
+                columns: new[] { "Id", "Address1", "Address2", "Email1", "Email2", "FacebookLink", "InstagramLink", "PhoneNumber1", "PhoneNumber2", "TiktokLink", "TwitterLink" },
+                values: new object[] { 1, "Kotli", "kotli", "naseer@gmail.com", "insram@gmail.com", "facebook.com", "instagram.com", "12345", "12345", "tiktok.com", "twitter.com" });
+
+            migrationBuilder.InsertData(
+                table: "tbl_countries",
+                columns: new[] { "Id", "Country_PicUrl", "Flag_PicUrl", "Name" },
+                values: new object[] { 1, "image.jpg", "image.jpg", "United Kingdom" });
+
+            migrationBuilder.InsertData(
+                table: "tbl_professionals",
+                columns: new[] { "Id", "Description", "Email", "Name", "PhoneNumber", "PicUrl" },
+                values: new object[] { 1, "This is Muhammad Naseer", "naseer@gmail.com", "Naseer", "12345", "image.jpg" });
+
+            migrationBuilder.InsertData(
+                table: "tbl_querymessages",
+                columns: new[] { "Id", "Email", "Message", "Name", "PhoneNumber", "Subject" },
+                values: new object[] { 1, "naseershabbir@gmail.com", "This is my Message", "Naseer", "12345", "Problem" });
+
+            migrationBuilder.InsertData(
+                table: "tbl_review",
+                columns: new[] { "Id", "Designation", "Message", "Name", "PicUrl", "Rating" },
+                values: new object[] { 1, "programmer", "Good", "Muhammad Naseer", "image.jpg", 4 });
+
+            migrationBuilder.InsertData(
+                table: "tbl_settings",
+                columns: new[] { "Id", "LogoFavicon", "Name" },
+                values: new object[] { 1, "image.jpg", "AFAConsultant" });
+
+            migrationBuilder.InsertData(
+                table: "tbl_slider",
+                columns: new[] { "Id", "Description", "PicURL", "Title" },
+                values: new object[] { 1, "This is Slider", "image.jpg", "Slider" });
+
+            migrationBuilder.InsertData(
+                table: "tbl_user",
+                columns: new[] { "Id", "FullName", "ImageName", "Password", "Username" },
+                values: new object[] { 1, "Muhammad Naseer", "naseer.jpg", "admin", "admin" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
 namespace AFAConsultant.Models
 {
@@ -15,8 +16,9 @@ namespace AFAConsultant.Models
         [MaxLength(150,ErrorMessage = "Description must be less than 150 Characters")]
         public string Description { get; set; }
         [Display(Name = "Slider Image")]
-        public string PicURL { get; set; }
+        [AllowNull]
+        public string? PicURL { get; set; }
         [NotMapped]
-        public IFormFile Picture { get; set; }
+        public IFormFile? Picture { get; set; }
     }
 }

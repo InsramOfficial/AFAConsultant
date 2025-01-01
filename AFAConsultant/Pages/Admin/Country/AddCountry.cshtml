@@ -1,0 +1,47 @@
+﻿@page
+@model AFAConsultant.Pages.Admin.Country.AddCountryModel
+@{
+    ViewData["title"] = "Add Country - AFAC";
+}
+<title>
+    @ViewData["title"]
+</title>
+
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1 class="text-center">Add Country</h1>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <!-- Left Column -->
+            <div class="col-6">
+                <div class="mb-3">
+                    <label asp-for="Country.Name" class="form-label"></label>
+                    <input class="form-control" asp-for="Country.Name" placeholder="Enter Name">
+                    <span asp-validation-for="Country.Name" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Country.Flag_PicUrl" class="form-label"></label>
+                    <input class="form-control" type="file" asp-for="Country.FlagPicture">
+                    <span asp-validation-for="Country.Flag_PicUrl" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Country.Country_PicUrl" class="form-label"></label>
+                    <input class="form-control" type="file" asp-for="Country.CountryPicture">
+                    <span asp-validation-for="Country.Country_PicUrl" class="text-danger"></span>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-4 text-center">
+                <a href="/Admin/Country/Index" class="btn btn-secondary">Back</a>
+                <input type="submit" value="Add Country" class="btn btn-primary">
+            </div>
+        </div>
+    </form>
+</div>
