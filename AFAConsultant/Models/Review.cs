@@ -23,7 +23,7 @@ namespace AFAConsultant.Models
         [Range(1,5,ErrorMessage = "Rating must be between 1 and 5")]
         public int Rating { get; set; }
         [Display(Name = "Image")]
-        public string PicUrl { get; set; }
+        public string? PicUrl { get; set; }
         [NotMapped]
         public IFormFile Picture { get; set; }
     }
