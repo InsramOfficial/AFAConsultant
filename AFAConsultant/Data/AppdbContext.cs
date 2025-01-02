@@ -19,6 +19,7 @@ namespace AFAConsultant.Data
         public DbSet<Settings> tbl_settings { get; set; }
         public DbSet<Slider> tbl_slider { get; set; }
         public DbSet<User> tbl_user { get; set; }
+        public DbSet<JobApplication> jobApplications { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
