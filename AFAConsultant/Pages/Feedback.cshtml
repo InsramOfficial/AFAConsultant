@@ -34,26 +34,26 @@
                         <form class="mb-5" method="post"  enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-6 form-group mb-3">
-                                    <label asp-for="ClientReview.Name" class="col-form-label"></label>
-                                    <input asp-for="ClientReview.Name" class="form-control" placeholder="Your name">
-                                    <span asp-validation-for="ClientReview.Name" class="text-danger"></span>
+                                    <label asp-for="Review.Name" class="col-form-label"></label>
+                                    <input asp-for="Review.Name" class="form-control" placeholder="Your name">
+                                    <span asp-validation-for="Review.Name" class="text-danger"></span>
 
                                 </div>
                                 <div class="col-md-6 form-group mb-3">
-                                    <label asp-for="ClientReview.Designation" class="col-form-label">Profession</label>
-                                    <input asp-for="ClientReview.Designation" class="form-control" placeholder="Your Professional">
-                                    <span asp-validation-for="ClientReview.Designation" class="text-danger"></span>
+                                    <label asp-for="Review.Designation" class="col-form-label">Profession</label>
+                                    <input asp-for="Review.Designation" class="form-control" placeholder="Your Professional">
+                                    <span asp-validation-for="Review.Designation" class="text-danger"></span>
 
                                 </div>  
                                 <div class="col-md-6 form-group mb-3">
-                                    <label asp-for="ClientReview.PicUrl" class="col-form-label">Picture</label>
-                                    <input asp-for="ClientReview.Picture" class="form-control" placeholder="Your Professional">
-                                    <span asp-validation-for="ClientReview.Picture" class="text-danger"></span>
+                                    <label asp-for="Review.PicUrl" class="col-form-label">Picture</label>
+                                    <input asp-for="Review.Picture" class="form-control" placeholder="Your Professional">
+                                    <span asp-validation-for="Review.PicUrl" class="text-danger"></span>
 
                                 </div>
                                 <div class="col-md-6 form-group mb-3">
-                                    <label asp-for="ClientReview.Rating" class="col-form-label">Rating</label>
-                                    <select class="form-select" asp-for="ClientReview.Rating" aria-label="Default select example">
+                                    <label asp-for="Review.Rating" class="col-form-label">Rating</label>
+                                    <select class="form-select" asp-for="Review.Rating" aria-label="Default select example">
                                         <option selected value="0">Select Ratings</option>
                                         <option value="1">*</option>
                                         <option value="2">**</option>
@@ -61,20 +61,17 @@
                                         <option value="4">****</option>
                                         <option value="5">*****</option>
                                     </select>
-                                    <span asp-validation-for="ClientReview.Rating" class="text-danger"></span>
+                                    <span asp-validation-for="Review.Rating" class="text-danger"></span>
                                 </div>
-
-                               
-                              
                             </div>
 
                             <div class="row">
                                 <div class="col-md-12 form-group mb-3">
 
-                                    <label asp-for="ClientReview.Message" class="col-form-label">Message *</label>
-                                    <textarea asp-for="ClientReview.Message" id="limitedTextarea" class="form-control" placeholder="Write your message"></textarea>
-                                    <p id="wordCount">Words: 0/15</p>
-                                    <span asp-validation-for="ClientReview.Message" class="text-danger"></span>
+                                    <label asp-for="Review.Message" class="col-form-label">Message *</label>
+                                    <textarea asp-for="Review.Message" id="limitedTextarea" class="form-control" placeholder="Write your message"></textarea>
+                                    <p id="charCount"></p>
+                                    <span asp-validation-for="Review.Message" class="text-danger"></span>
 
                                 </div>
                             </div>
@@ -112,21 +109,21 @@
     <script>
 
         document.getElementById('limitedTextarea').addEventListener('input', function () {
-            const maxWords = 15;
+            const maxChars = 180; // Set your desired maximum character limit here
             const textarea = this;
-            const wordCountElement = document.getElementById('wordCount');
+            const charCountElement = document.getElementById('charCount');
 
-            let words = textarea.value.split(/\s+/).filter(word => word.length > 0);
-
-            if (words.length > maxWords) {
-                textarea.value = words.slice(0, maxWords).join(' ');
-                words = words.slice(0, maxWords);
+            // Check the length of the input value
+            if (textarea.value.length > maxChars) {
+                // If it exceeds, truncate the value to the maxChars limit
+                textarea.value = textarea.value.substring(0, maxChars);
             }
 
-            wordCountElement.textContent = `Words: ${words.length}/${maxWords}`;
+            // Update the character count display
+            charCountElement.textContent = `Characters: ${textarea.value.length}/${maxChars}`;
         });
     </script>
-    <script>
+    @* <script>
         setTimeout(() => {
             const successAlert = document.getElementById('successAlert');
             if (successAlert) {
@@ -152,7 +149,7 @@
                 setTimeout(() => deleteAlert.remove(), 500);
             }
         }, 5000);
-    </script>
+    </script> *@
     <script src="~/Admin_files/js/jquery-3.3.1.min.js"></script>
     <script src="~/Admin_files/js/popper.min.js"></script>
     <script src="~/Admin_files/js/bootstrap.min.js"></script>

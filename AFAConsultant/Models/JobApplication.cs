@@ -8,31 +8,32 @@ public class JobApplication
     public int Id { get; set; }
 
     [Required(ErrorMessage = "Full name is required")]
+    [Display(Name = "Full Name")]
     public string FullName { get; set; }
-
     [Required(ErrorMessage = "Email is required")]
     [EmailAddress(ErrorMessage = "Invalid email address")]
+    [Display(Name = "Email")]
     public string Email { get; set; }
-
     [Required(ErrorMessage = "Phone number is required")]
     [Phone(ErrorMessage = "Invalid phone number")]
+    [Display(Name = "Phone Number")]
     public string PhoneNumber { get; set; }
-
+    [Display(Name = "Date of Birth")]
     [Required(ErrorMessage = "Birth date is required")]
     [DataType(DataType.Date)]
     public DateTime BirthDate { get; set; }
-
+    [Display(Name = "Gender")]
     [Required(ErrorMessage = "Gender is required")]
     public string Gender { get; set; }
 
     [Required(ErrorMessage = "Street address is required")]
+    [Display(Name = "Street Address")]
     public string StreetAddress1 { get; set; }
-
     public string StreetAddress2 { get; set; }
-
+    [Display(Name = "Country")]
     [Required(ErrorMessage = "Country is required")]
     public string Country { get; set; }
-
+    [Display(Name = "City")]
     [Required(ErrorMessage = "City is required")]
     public string City { get; set; }
 
@@ -40,24 +41,17 @@ public class JobApplication
     public string Region { get; set; }
 
     [Required(ErrorMessage = "Postal code is required")]
-    [RegularExpression("\\d{5}", ErrorMessage = "Postal code must be 5 digits")]
+    [Display(Name = "Postal Code")]
     public string PostalCode { get; set; }
-
-    [Required(ErrorMessage = "Current position is required")]
+    [Display(Name = "Current Position")]
     public string CurrentPosition { get; set; }
-
-    [Required(ErrorMessage = "Years of experience is required")]
-    [Range(0, 50, ErrorMessage = "Years of experience must be between 0 and 50")]
+    [Display(Name = "Year of Experience")]
     public int YearsOfExperience { get; set; }
-
-    [Required(ErrorMessage = "Specialization area is required")]
+    [Display(Name = "Specialization Area")]
     public string SpecializationArea { get; set; }
-
-    
-
-    [Url(ErrorMessage = "Invalid picture URL")]
-    public string? PicUrl { get; set; }
-
+    [Display(Name = "Image")]
+    public string PicUrl { get; set; }
     [NotMapped]
+    [Required(ErrorMessage = "Picture is Required")]
     public IFormFile Picture { get; set; }
 }

@@ -18,7 +18,6 @@ namespace AFAConsultant.Pages
         
         public JobApplication JobApplications { get; set; }
 
-        [HttpPost]
         public IActionResult OnPost(JobApplication JobApplications)
         {
             if (!ModelState.IsValid)

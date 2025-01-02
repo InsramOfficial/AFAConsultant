@@ -15,39 +15,24 @@ namespace AFAConsultant.Pages
             db = _db;
             this.env = env;
         }
-        public Review ClientReview { get; set; }
-
-        [HttpPost]
-        public IActionResult OnPost(Review ClientReview)
+        public Review Review { get; set; }
+        public IActionResult OnPost(Review Review)
         {
             if (!ModelState.IsValid)
             {
                 TempData["info"] = "Insert your data correctly";
-
                 // Debugging Validation Errors
                 foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
                 {
                     Console.WriteLine(error.ErrorMessage);
                 }
-
                 return Page();
             }
 
             try
             {
-                if (ClientReview.Picture != null)
-                {
-                    ClientReview.PicUrl = ClientReview.Picture.FileName;
-                    var folderPath = Path.Combine(env.WebRootPath, "images");
-                    var imagePath = Path.Combine(folderPath, ClientReview.Picture.FileName);
-                    Directory.CreateDirectory(folderPath);  
-                    using (var fileStream = new FileStream(imagePath, FileMode.Create))
-                    {
-                        ClientReview.Picture.CopyTo(fileStream);
-                    }
-                }
-
-                db.tbl_review.Add(ClientReview);
+                Review.PicUrl = Review.Picture.FileName;
+                db.tbl_review.Add(Review);
                 db.SaveChanges();
                 TempData["success"] = "Thank you for your review";
                 return RedirectToPage();
