@@ -22,7 +22,7 @@ namespace AFAConsultant.Models
         public string PhoneNumber { get; set; }
         [Display(Name = "Date of Birth")]
         [Required(ErrorMessage = "Birth date is required")]
-        [DataType(DataType.Date,ErrorMessage = "Please Valid Data")]
+        [DataType(DataType.Date,ErrorMessage = "Date of Birth Is Invalid")]
         public DateTime BirthDate { get; set; }
         [Display(Name = "Gender")]
         [Required(ErrorMessage = "Gender is required")]
