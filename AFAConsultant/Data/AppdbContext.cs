@@ -19,7 +19,7 @@ namespace AFAConsultant.Data
         public DbSet<Settings> tbl_settings { get; set; }
         public DbSet<Slider> tbl_slider { get; set; }
         public DbSet<User> tbl_user { get; set; }
-        public DbSet<JobApplication> jobApplications { get; set; }
+        public DbSet<Job> tbl_job { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -57,8 +57,7 @@ namespace AFAConsultant.Data
                 new Slider { Id = 1, Title = "Slider", Description = "This is Slider",PicURL = "image.jpg" }
                 );
             modelBuilder.Entity<User>().HasData(
-                new User { Id = 1, Username = "admin", Password = "admin", FullName = "Muhammad Naseer",ImageName = "naseer.jpg"},
-                new User { Id = 2, Username = "admin", Password = "admin", FullName = "Muhammad Naseer",ImageName = "naseer.jpg"}
+                new User { Id = 1, Username = "admin", Password = "admin", FullName = "Muhammad Naseer",ImageName = "naseer.jpg"}
                 );
         }
 

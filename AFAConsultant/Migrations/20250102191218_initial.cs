@@ -10,33 +10,6 @@ namespace AFAConsultant.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "jobApplications",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    StreetAddress1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    StreetAddress2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Region = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PostalCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CurrentPosition = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    YearsOfExperience = table.Column<int>(type: "int", nullable: false),
-                    SpecializationArea = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PicUrl = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_jobApplications", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "tbl_aboutus",
                 columns: table => new
                 {
@@ -89,6 +62,33 @@ namespace AFAConsultant.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_tbl_countries", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "tbl_job",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    StreetAddress1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    StreetAddress2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Province = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PostalCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CurrentPosition = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    YearsOfExperience = table.Column<int>(type: "int", nullable: false),
+                    SpecializationArea = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PicUrl = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_tbl_job", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -244,18 +244,11 @@ namespace AFAConsultant.Migrations
             migrationBuilder.InsertData(
                 table: "tbl_user",
                 columns: new[] { "Id", "FullName", "ImageName", "Password", "Username" },
-                values: new object[,]
-                {
-                    { 1, "Muhammad Naseer", "naseer.jpg", "admin", "admin" },
-                    { 2, "Muhammad Naseer", "naseer.jpg", "admin", "admin" }
-                });
+                values: new object[] { 1, "Muhammad Naseer", "naseer.jpg", "admin", "admin" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "jobApplications");
-
             migrationBuilder.DropTable(
                 name: "tbl_aboutus");
 
@@ -264,6 +257,9 @@ namespace AFAConsultant.Migrations
 
             migrationBuilder.DropTable(
                 name: "tbl_countries");
+
+            migrationBuilder.DropTable(
+                name: "tbl_job");
 
             migrationBuilder.DropTable(
                 name: "tbl_professionals");

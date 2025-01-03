@@ -2,6 +2,7 @@
 @model AFAConsultant.Pages.JobApplicationModel
 @{
     Layout = null;
+    TempData["title"] = "Job Apply - AFAC";
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -9,10 +10,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    
+    <title>@TempData["title"]</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/root_files/JobApplication.css" />
+    <link href="~/Admin_files/css/ToastStyleSheet.css" rel="stylesheet">
 
 </head>
 <body>
@@ -24,122 +26,129 @@
                 <div class="left-column">
                     <!-- Personal Information -->
                     <div class="input-box">
-                        <label asp-for="JobApplications.FullName"></label>
-                        <input asp-for="JobApplications.FullName" placeholder="Enter full name" />
-                        <span asp-validation-for="JobApplications.FullName" class="text-danger"></span>
+                        <label asp-for="Job.FullName"></label><span style="color:red;">*</span>
+                        <input asp-for="Job.FullName" placeholder="Enter full name" />
+                        <span asp-validation-for="Job.FullName" class="text-danger"></span>
 
                     </div>
 
                     <div class="input-box">
-                        <label asp-for="JobApplications.PhoneNumber"></label>
-                        <input asp-for="JobApplications.PhoneNumber" placeholder="Enter phone number" />
-                        <span asp-validation-for="JobApplications.PhoneNumber" class="text-danger"></span>
+                        <label asp-for="Job.PhoneNumber"></label><span style="color:red;">*</span>
+                        <input asp-for="Job.PhoneNumber" placeholder="Enter phone number" />
+                        <span asp-validation-for="Job.PhoneNumber" class="text-danger"></span>
 
                     </div>
 
                     <div class="gender-box">
-                        <h3>Gender</h3>
+                        <h3>Gender<span style="color:red;">*</span></h3>
                         <div class="gender-option">
                             <div class="gender">
-                                <input asp-for="JobApplications.Gender" type="radio" id="male" value="Male" />
-
+                                <input asp-for="Job.Gender" type="radio" id="male" value="Male" />
                                 <label for="male">Male</label>
                             </div>
                             <div class="gender">
-                                <input asp-for="JobApplications.Gender" type="radio" id="female" value="Female" />
-
-
+                                <input asp-for="Job.Gender" type="radio" id="female" value="Female" />
                                 <label for="female">Female</label>
                             </div>
                             <div class="gender">
-                                <input asp-for="JobApplications.Gender" type="radio" id="other" value="Prefer not to say" />
-
+                                <input asp-for="Job.Gender" type="radio" id="other" value="Prefer not to say" />
                                 <label for="other">Prefer not to say</label>
-                                <span asp-validation-for="JobApplications.Gender" class="text-danger"></span>
-
                             </div>
+                            <span asp-validation-for="Job.Gender" class="text-danger"></span>
                         </div>
                     </div>
-
                     <div class="input-box address">
-                        <label>Address</label>
-                        <input asp-for="JobApplications.StreetAddress1" placeholder="Enter street address" />
-                        <span asp-validation-for="JobApplications.StreetAddress1" class="text-danger"></span>
-
-                        <input asp-for="JobApplications.StreetAddress1" placeholder="Enter street address line 2" />
-
+                        <label>Address<span style="color:red;">*</span></label>
+                        <input asp-for="Job.StreetAddress1" placeholder="Enter street address" />
+                        <span asp-validation-for="Job.StreetAddress1" class="text-danger"></span>
+                        <input asp-for="Job.StreetAddress2" placeholder="Enter street address line 2" />
                         <div class="column">
-                            <div class="select-box">
-                                <select asp-for="JobApplications.Country">
-                                    <option hidden>Country</option>
-                                    <option>America</option>
-                                    <option>Pakistan</option>
-                                    <option>India</option>
-                                    <option>Russia</option>
-                                </select>
-                            </div>
-                            <input asp-for="JobApplications.City" placeholder="Enter your city" />
-
+                            <input asp-for="Job.Country" placeholder="Enter your country" />
+                            
+                            <input asp-for="Job.City" placeholder="Enter your city" />
+                            
                         </div>
+                        <span asp-validation-for="Job.Country" class="text-danger"></span>
+                        <span asp-validation-for="Job.City" class="text-danger"></span>
                         <div class="column">
-                            <input asp-for="JobApplications.Region" placeholder="Enter your region" />
-
-                            <input asp-for="JobApplications.PostalCode" placeholder="Enter postal code" />
-
+                            <input asp-for="Job.Province" placeholder="Enter your Province" />
+                            
+                            <input asp-for="Job.PostalCode" placeholder="Enter postal code" />
+                            
                         </div>
-                        <span asp-validation-for="JobApplications.PostalCode" class="text-danger"></span>
-                        <span asp-validation-for="JobApplications.Region" class="text-danger"></span>
-                        <span asp-validation-for="JobApplications.City" class="text-danger"></span>
-
+                        <span asp-validation-for="Job.Province" class="text-danger"></span>
+                        <span asp-validation-for="Job.PostalCode" class="text-danger"></span>
                     </div>
                 </div>
 
                 <!-- Right Column -->
                 <div class="right-column">
                     <div class="input-box">
-                        <label asp-for="JobApplications.Email"></label>
-                        <input asp-for="JobApplications.Email" placeholder="Enter email address" />
-                        <span asp-validation-for="JobApplications.Email" class="text-danger"></span>
+                        <label asp-for="Job.Email"></label><span style="color:red;">*</span>
+                        <input asp-for="Job.Email" placeholder="Enter email address" />
+                        <span asp-validation-for="Job.Email" class="text-danger"></span>
 
                     </div>
                     <div class="input-box">
-                        <label asp-for="JobApplications.BirthDate"></label>
-                        <input asp-for="JobApplications.BirthDate" type="date" />
-                        <span asp-validation-for="JobApplications.BirthDate" class="text-danger"></span>
+                        <label asp-for="Job.BirthDate"></label><span style="color:red;">*</span>
+                        <input asp-for="Job.BirthDate" type="date" />
+                        <span asp-validation-for="Job.BirthDate" class="text-danger"></span>
 
                     </div>
 
                     <!-- Professional Information -->
                     <div class="input-box">
-                        <label asp-for="JobApplications.CurrentPosition"></label>
-                        <input asp-for="JobApplications.CurrentPosition" placeholder="Enter your current position" />
-                        <span asp-validation-for="JobApplications.CurrentPosition" class="text-danger"></span>
+                        <label asp-for="Job.CurrentPosition"></label>
+                        <input asp-for="Job.CurrentPosition" placeholder="Enter your current position" />
+                        <span asp-validation-for="Job.CurrentPosition" class="text-danger"></span>
+                    </div>
+                    <div class="input-box">
+                        <label asp-for="Job.YearsOfExperience"></label>
+                        <input asp-for="Job.YearsOfExperience" placeholder="Enter years of experience" />
+                        <span asp-validation-for="Job.YearsOfExperience" class="text-danger"></span>
 
                     </div>
                     <div class="input-box">
-                        <label asp-for="JobApplications.YearsOfExperience"></label>
-                        <input asp-for="JobApplications.YearsOfExperience" placeholder="Enter years of experience" />
-                        <span asp-validation-for="JobApplications.YearsOfExperience" class="text-danger"></span>
+                        <label asp-for="Job.SpecializationArea"></label>
+                        <input asp-for="Job.SpecializationArea" placeholder="Enter your specialization area" />
+                        <span asp-validation-for="Job.SpecializationArea" class="text-danger"></span>
 
                     </div>
-                    <div class="input-box">
-                        <label asp-for="JobApplications.SpecializationArea"></label>
-                        <input asp-for="JobApplications.SpecializationArea" placeholder="Enter your specialization area" />
-                        <span asp-validation-for="JobApplications.SpecializationArea" class="text-danger"></span>
-
-                    </div>
-                   
                     <!-- Attachments -->
                     <div class="input-box">
-                       
-                        <label asp-for="JobApplications.PicUrl">Picture</label>
-                        <input asp-for="JobApplications.Picture"  placeholder="Your Image">
-                        <span asp-validation-for="JobApplications.Picture" class="text-danger"></span>
+                        <label asp-for="Job.PicUrl"></label><span style="color:red;">*</span>
+                        <input asp-for="Job.Picture"  placeholder="Your Image">
+                        <input type="hidden" asp-for="Job.PicUrl" />
+                        <span asp-validation-for="Job.Picture" class="text-danger"></span>
                     </div>
                 </div>
             </div>
             <button type="submit">Submit</button>
         </form>
     </section>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="~/Admin_files/js/toast-plugin.js"></script>
+    <script src="~/Admin_files/js/toast-plugin-min.js"></script>
+    <script>
+        $(document).ready(function () {
+            console.log("Jquery is running");
+            if ('@TempData["success"]' !== '') {
+                $.toast({
+                    title: "Success Message",
+                    message: '@TempData["success"]',
+                    type: "success",
+                    duration: 5000
+                });
+            }
+            if ('@TempData["info"]' !== '') {
+                $.toast({
+                    title: "Info Message",
+                    message: '@TempData["info"]',
+                    type: "info",
+                    duration: 5000
+                });
+            }
+        });
+    </script>
 </body>
 </html>

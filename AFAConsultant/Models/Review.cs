@@ -25,6 +25,7 @@ namespace AFAConsultant.Models
         [Display(Name = "Image")]
         public string? PicUrl { get; set; }
         [NotMapped]
+        [Required(ErrorMessage = "Image is required")]
         public IFormFile Picture { get; set; }
     }
 }

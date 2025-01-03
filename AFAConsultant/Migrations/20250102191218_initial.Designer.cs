@@ -4,6 +4,7 @@ using AFAConsultant.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AFAConsultant.Migrations
 {
     [DbContext(typeof(AppdbContext))]
-    partial class AppdbContextModelSnapshot : ModelSnapshot
+    [Migration("20250102191218_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -189,6 +191,7 @@ namespace AFAConsultant.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CurrentPosition")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -220,6 +223,7 @@ namespace AFAConsultant.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SpecializationArea")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("StreetAddress1")
@@ -227,9 +231,10 @@ namespace AFAConsultant.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("StreetAddress2")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("YearsOfExperience")
+                    b.Property<int>("YearsOfExperience")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

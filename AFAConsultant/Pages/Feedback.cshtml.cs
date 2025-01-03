@@ -32,6 +32,9 @@ namespace AFAConsultant.Pages
             try
             {
                 Review.PicUrl = Review.Picture.FileName;
+                var folderpath = Path.Combine(env.WebRootPath, "images");
+                var imagepath = Path.Combine(folderpath,Review.Picture.FileName);
+                Review.Picture.CopyTo(new FileStream(imagepath, FileMode.Create));
                 db.tbl_review.Add(Review);
                 db.SaveChanges();
                 TempData["success"] = "Thank you for your review";
@@ -39,7 +42,7 @@ namespace AFAConsultant.Pages
             }
             catch (Exception ex)
             {
-                TempData["error"] = $"Error while submitting review: {ex.Message}";
+                TempData["error"] = "Error while submitting review";
                 return Page();
             }
         }
