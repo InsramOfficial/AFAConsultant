@@ -16,19 +16,29 @@ namespace AFAConsultant.Pages.Admin.JobApplications
         {
             db = _db;
         }
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
             try
             {
                 Jobs = await db.tbl_job.ToListAsync();
+                return Page();
             }
             catch (Exception ex)
             {
                 Jobs = new List<Job>();
+                return Page();
             }
         }
         public IActionResult OnGetDelete(int id)
         {
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
             try
             {
                 Job = db.tbl_job.Where(x => x.Id == id).FirstOrDefault();

@@ -15,12 +15,21 @@ namespace AFAConsultant.Pages.Admin.Country
             db = _db;
             env = _env;
         }
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
+            return Page();
 
         }
         public IActionResult OnPost(Countries Country)
         {
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
             if (!ModelState.IsValid)
             {
                 TempData["info"] = "Please Insert Correct Data";

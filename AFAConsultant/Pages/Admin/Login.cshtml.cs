@@ -17,6 +17,15 @@ namespace AFAConsultant.Pages.Admin
             db = _db;
             env = _env;
         }
+        public IActionResult OnGet()
+        {
+            if ((HttpContext.Session.GetString("flag") == "true"))
+            {
+                TempData["warning"] = "You are already logged in";
+                return RedirectToPage("/Admin/Index");
+            }
+            return Page();
+        }
         public async Task<IActionResult> OnPostAsync(Login login)
         {
             if (!ModelState.IsValid)

@@ -15,20 +15,30 @@ namespace AFAConsultant.Pages.Admin.Reviews
 		{
 			db = _db;
 		}
-		public async Task OnGetAsync()
+		public async Task<IActionResult> OnGetAsync()
 		{
-			try
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
+            try
 			{
 				reviews = await db.tbl_review.ToListAsync();
+				return Page();
 			}
 			catch (Exception ex)
 			{
 				reviews = new List<Review>();
+				return Page();
 			}
 		}
 		public IActionResult OnGetDelete(int id)
 		{
-			try
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
+            try
 			{
 				Review = db.tbl_review.Where(x => x.Id == id).FirstOrDefault();
 				db.tbl_review.Remove(Review);

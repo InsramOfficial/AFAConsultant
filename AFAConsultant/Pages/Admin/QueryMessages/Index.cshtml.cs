@@ -15,20 +15,30 @@ namespace AFAConsultant.Pages.Admin.QueryMessages
 		{
 			db = _db;
 		}
-		public async Task OnGetAsync()
+		public async Task<IActionResult> OnGetAsync()
 		{
-			try
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
+            try
 			{
 				Messages = await db.tbl_querymessages.ToListAsync();
+				return Page();
 			}
 			catch (Exception ex)
 			{
 				Messages = new List<QueryMessage>();
+				return Page();
 			}
 		}
 		public IActionResult OnGetDelete(int id)
 		{
-			try
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
+            try
 			{
 				Message = db.tbl_querymessages.Where(x => x.Id == id).FirstOrDefault();
 				db.tbl_querymessages.Remove(Message);

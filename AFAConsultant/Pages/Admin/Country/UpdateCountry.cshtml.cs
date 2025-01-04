@@ -15,21 +15,31 @@ namespace AFAConsultant.Pages.Admin.Country
             db = _db;
             env = _env;
         }
-        public async Task OnGetAsync(int id)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
             try
             {
                 Country = await db.tbl_countries.FindAsync(id);
                 TempData["flagpic"] = Country.Flag_PicUrl;
                 TempData["countrypic"] = Country.Country_PicUrl;
+                return Page();
             }
             catch (Exception ex)
             {
                 TempData["error"] = "Error Occur While Getting Data";
+                return Page();
             }
         }
         public IActionResult OnPost(Countries Country)
         {
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
             if (!ModelState.IsValid)
             {
                 TempData["info"] = "Please Insert Correct Data";

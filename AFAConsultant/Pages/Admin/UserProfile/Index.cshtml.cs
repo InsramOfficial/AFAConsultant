@@ -23,6 +23,10 @@ namespace AFAConsultant.Pages.Admin.UserProfile
 
         public IActionResult OnGet()
         {
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
             user = db.tbl_user.FirstOrDefault();
             ImageName = user.ImageName;
             return Page();
@@ -30,6 +34,10 @@ namespace AFAConsultant.Pages.Admin.UserProfile
 
         public IActionResult OnPost(User user)
         {
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
             if (!ModelState.IsValid)
             {
                 TempData["info"] = "Insert your data correctly";

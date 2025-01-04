@@ -8,7 +8,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Review Submitted</title>
+    <title>Success - AFAC</title>
+    <link href="~/Admin_files/css/ToastStyleSheet.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -52,8 +53,57 @@
 <body>
     <div class="confirmation-container">
         <h1>Thank You!</h1>
-        <p>Your review has been submitted successfully.</p>
+        <p>@TempData["success"]</p>
         <a href="index" class="back-home">Back to Home</a>
     </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="~/Admin_files/js/toast-plugin.js"></script>
+    <script src="~/Admin_files/js/toast-plugin-min.js"></script>
+    <script>
+        $(document).ready(function () {
+            console.log("Jquery is running");
+            if ('@TempData["success"]' !== '') {
+                $.toast({
+                    title: "Success",
+                    message: '@TempData["success"]',
+                    type: "success",
+                    duration: 5000
+                });
+            }
+
+
+            if ('@TempData["error"]' !== '') {
+                $.toast({
+                    title: "Error",
+                    message: '@TempData["error"]',
+                    type: "error",
+                    duration: 5000
+                });
+            }
+
+
+            if ('@TempData["warning"]' !== '') {
+                $.toast({
+                    title: "Warning",
+                    message: '@TempData["warning"]',
+                    type: "warning",
+                    duration: 5000
+                });
+            }
+
+
+            if ('@TempData["info"]' !== '') {
+                $.toast({
+                    title: "Info",
+                    message: '@TempData["info"]',
+                    type: "info",
+                    duration: 5000
+                });
+            }
+        });
+    </script>
 </body>
 </html>

@@ -15,19 +15,29 @@ namespace AFAConsultant.Pages.Admin.Country
         {
             db = _db;
         }
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
             try
             {
                 countries = await db.tbl_countries.ToListAsync();
+                return Page();
             }
             catch (Exception ex)
             {
                 countries = new List<Countries>();
+                return Page();
             }
         }
         public IActionResult OnGetDelete(int id)
         {
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
             try
             {
                 country = db.tbl_countries.Where(x => x.Id == id).FirstOrDefault();

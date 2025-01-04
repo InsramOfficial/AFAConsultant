@@ -42,7 +42,7 @@ namespace AFAConsultant.Pages
                 db.tbl_job.Add(Job);
                 db.SaveChanges();
                 TempData["success"] = "Thank You for joining us we shall come to you shortly";
-                return RedirectToPage();
+                return RedirectToPage("/Success");
             }
             catch (Exception ex)
             {

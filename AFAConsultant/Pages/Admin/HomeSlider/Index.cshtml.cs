@@ -15,20 +15,30 @@ namespace AFAConsultant.Pages.Admin.HomeSlider
 		{
 			db = _db;
 		}
-		public async Task OnGetAsync()
+		public async Task<IActionResult> OnGetAsync()
 		{
-			try
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
+            try
 			{
 				Sliders = await db.tbl_slider.ToListAsync();
+				return Page();
 			}
 			catch (Exception ex)
 			{
 				Sliders = new List<Slider>();
+				return Page();
 			}
 		}
 		public IActionResult OnGetDelete(int id)
 		{
-			try
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
+            try
 			{
 				Slider = db.tbl_slider.Where(x => x.Id == id).FirstOrDefault();
 				db.tbl_slider.Remove(Slider);

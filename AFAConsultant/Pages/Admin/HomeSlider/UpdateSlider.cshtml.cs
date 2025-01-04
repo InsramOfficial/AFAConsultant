@@ -15,20 +15,30 @@ namespace AFAConsultant.Pages.Admin.HomeSlider
             db = _db;
             env = _env;
         }
-        public async Task OnGetAsync(int id)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
             try
             {
                 Slider = await db.tbl_slider.FindAsync(id);
                 TempData["picurl"] = Slider.PicURL;
+                return Page();
             }
             catch (Exception ex)
             {
                 TempData["error"] = "Error Occur While Getting Data";
+                return Page();
             }
         }
         public IActionResult OnPost(Slider Slider)
         {
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
             if (!ModelState.IsValid)
             {
                 TempData["info"] = "Please Insert Correct Data";

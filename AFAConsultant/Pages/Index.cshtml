@@ -661,47 +661,52 @@
 
                     Just fill out the form with your details and message, and our team will respond quickly to provide the support you need. Your satisfaction and trust are our top priorities, and we look forward to assisting you in achieving your goals.
                 </p>
-                <form>
+                <form method="post">
                     <div class="row g-4">
-                        <div class="col-lg-12 col-xl-6">
+                        <div class="col-12">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                <label for="name">Your Name</label>
+                                <input asp-for="message.Name"class="form-control" placeholder="Your Name">
+                                <label asp-for="message.Name"></label>
                             </div>
+                            <span asp-validation-for="message.Name" class="text-danger"></span>
                         </div>
                         <div class="col-lg-12 col-xl-6">
                             <div class="form-floating">
-                                <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                <label for="email">Your Email</label>
+                                <input asp-for="message.Email" class="form-control" placeholder="Your Email">
+                                <label asp-for="message.Email"></label>
                             </div>
+                            <span asp-validation-for="message.Email" class="text-danger"></span>
                         </div>
                         <div class="col-lg-12 col-xl-6">
                             <div class="form-floating">
-                                <input type="phone" class="form-control" id="phone" placeholder="Phone">
-                                <label for="phone">Your Phone</label>
+                                <input asp-for="message.PhoneNumber" class="form-control"  placeholder="Phone">
+                                <label asp-for="message.PhoneNumber"></label>
                             </div>
+                            <span asp-validation-for="message.PhoneNumber" class="text-danger"></span>
                         </div>
-                        <div class="col-lg-12 col-xl-6">
+                        @* <div class="col-lg-12 col-xl-6">
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="project" placeholder="Project">
                                 <label for="project">Your Project</label>
                             </div>
-                        </div>
+                        </div> *@
                         <div class="col-12">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                <label for="subject">Subject</label>
+                                <input asp-for="message.Subject" class="form-control" placeholder="Subject">
+                                <label asp-for="message.Subject"></label>
                             </div>
+                            <span asp-validation-for="message.Subject" class="text-danger"></span>
                         </div>
                         <div class="col-12">
                             <div class="form-floating">
-                                <textarea class="form-control" placeholder="Leave a message here" id="message"
+                                <textarea asp-for="message.Message" class="form-control" placeholder="Leave a message here"
                                           style="height: 160px"></textarea>
-                                <label for="message">Message</label>
+                                <label asp-for="message.Message"></label>
                             </div>
+                            <span asp-validation-for="message.Message" class="text-danger"></span>
                         </div>
                         <div class="col-12">
-                            <button class="btn btn-primary w-100 py-3">Send Message</button>
+                            <button type="submit" class="btn btn-primary w-100 py-3">Send Message</button>
                         </div>
                     </div>
                 </form>
@@ -770,10 +775,10 @@
             </div>
             <!-- Right Section -->
             <div class="col-md-6 text-center text-md-end">
-                <p class="mb-1 text-white">Designed By:</p>
+                <p class="mb-1 text-white">Designed By Develop:</p>
                 <p class="fw-bold text-white mb-1">
-                    <a href="https://wa.me/923401159116" class="text-primary text-decoration-none">Insram Ul Haq</a> &
-                    <a href="https://wa.me/923425464039" class="text-primary text-decoration-none">Muhammad Naseer</a>
+                    <a target="_blank" href="https://wa.me/923401159116" class="text-primary text-decoration-none"><i class="fab fa-whatsapp"></i>Insram Ul Haq</a> &
+                    <a target="_blank" href="https://wa.me/923425464039" class="text-primary text-decoration-none"><i class="fab fa-whatsapp"></i>Muhammad Naseer</a>
                 </p>
                 <p class="text-muted small mb-0">Contact us anytime for assistance or queries.</p>
             </div>

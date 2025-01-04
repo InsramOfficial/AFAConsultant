@@ -15,20 +15,30 @@ namespace AFAConsultant.Pages.Admin.Professional
             db = _db;
             env = _env;
         }
-        public async Task OnGetAsync(int id)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
             try
             {
                 Professional = await db.tbl_professionals.FindAsync(id);
                 TempData["picurl"] = Professional.PicUrl;
+                return Page();
             }
             catch (Exception ex)
             {
                 TempData["error"] = "Error Occur While Getting Data";
+                return Page();
             }
         }
         public IActionResult OnPost(Professionals Professional)
         {
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
             if (!ModelState.IsValid)
             {
                 TempData["info"] = "Please Insert Correct Data";

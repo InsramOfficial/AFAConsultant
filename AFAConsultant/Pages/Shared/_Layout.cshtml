@@ -28,6 +28,8 @@
 
     <!-- Template Stylesheet -->
     <link href="~/user/css/style.css" rel="stylesheet">
+    @* Toast CSS *@
+    <link href="~/Admin_files/css/ToastStyleSheet.css" rel="stylesheet">
 </head>
 
 <body>
@@ -87,6 +89,53 @@
 
     <!-- Template Javascript -->
     <script src="~/user/js/main.js"></script>
+    @* Toast JavaScript *@
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="~/Admin_files/js/toast-plugin.js"></script>
+    <script src="~/Admin_files/js/toast-plugin-min.js"></script>
+    <script>
+        $(document).ready(function () {
+            console.log("Jquery is running");
+            if ('@TempData["success"]' !== '') {
+                $.toast({
+                    title: "Success",
+                    message: '@TempData["success"]',
+                    type: "success",
+                    duration: 5000
+                });
+            }
+
+
+            if ('@TempData["error"]' !== '') {
+                $.toast({
+                    title: "Error",
+                    message: '@TempData["error"]',
+                    type: "error",
+                    duration: 5000
+                });
+            }
+
+
+            if ('@TempData["warning"]' !== '') {
+                $.toast({
+                    title: "Warning",
+                    message: '@TempData["warning"]',
+                    type: "warning",
+                    duration: 5000
+                });
+            }
+
+
+            if ('@TempData["info"]' !== '') {
+                $.toast({
+                    title: "Info",
+                    message: '@TempData["info"]',
+                    type: "info",
+                    duration: 5000
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

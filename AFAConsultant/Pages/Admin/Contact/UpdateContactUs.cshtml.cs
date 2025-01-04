@@ -14,13 +14,22 @@ namespace AFAConsultant.Pages.Admin.Contact
         {
             db = _db;
         }
-        public async Task OnGet()
+        public async Task<IActionResult> OnGetAsync()
         {
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
             contact = await db.tbl_contactus.FirstOrDefaultAsync();
+            return Page();
         }
 
         public IActionResult OnPost(Contactus contact)
         {
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
             if (!ModelState.IsValid)
             {
                 TempData["info"] = "Please Insert Correct data";

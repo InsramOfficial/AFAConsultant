@@ -28,7 +28,7 @@
 <body>
     <div class="wrapper">
         <div class="container py-3">
-            <h1 class="mb-4 text-center">Job Application Form</h1>
+            <h1 class="mb-4 text-center">Job Application</h1>
             <form method="post" enctype="multipart/form-data">
                 <div class="row mb-3">
                     <div class="col-md-6">
@@ -63,18 +63,21 @@
                         <span asp-validation-for="Job.Gender" class="text-danger"></span>
                     </div>
                 </div>
-
                 <div class="row mb-3">
                     <div class="col-md-6">
-                        <label asp-for="Job.StreetAddress1" class="form-label">Street Address 1 <span class="text-danger">*</span></label>
-                        <input asp-for="Job.StreetAddress1" class="form-control" placeholder="Enter street address"  >
-                        <span asp-validation-for="Job.StreetAddress1" class="text-danger"></span>
+                        <label asp-for="Job.BirthDate" class="form-label">Birth Date <span class="text-danger">*</span></label>
+                        <input asp-for="Job.BirthDate" class="form-control" type="date"
+                               min="1900-01-01"
+                               max="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                        <span asp-validation-for="Job.BirthDate" class="text-danger"></span>
                     </div>
                     <div class="col-md-6">
-                        <label asp-for="Job.StreetAddress2" class="form-label">Street Address 2</label>
-                        <input asp-for="Job.StreetAddress2" class="form-control" placeholder="Enter street address line 2">
+                        <label asp-for="Job.Email" class="form-label">Email <span class="text-danger">*</span></label>
+                        <input asp-for="Job.Email" class="form-control" placeholder="Enter email address">
+                        <span asp-validation-for="Job.Email" class="text-danger"></span>
                     </div>
                 </div>
+                
 
                 <div class="row mb-3">
                     <div class="col-md-6">
@@ -88,7 +91,6 @@
                         <span asp-validation-for="Job.City" class="text-danger"></span>
                     </div>
                 </div>
-
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label asp-for="Job.Province" class="form-label">Province <span class="text-danger">*</span></label>
@@ -101,23 +103,17 @@
                         <span asp-validation-for="Job.PostalCode" class="text-danger"></span>
                     </div>
                 </div>
-
                 <div class="row mb-3">
                     <div class="col-md-6">
-                        <label asp-for="Job.Email" class="form-label">Email <span class="text-danger">*</span></label>
-                        <input asp-for="Job.Email" class="form-control" placeholder="Enter email address"  >
-                        <span asp-validation-for="Job.Email" class="text-danger"></span>
+                        <label asp-for="Job.StreetAddress1" class="form-label">Street Address 1 <span class="text-danger">*</span></label>
+                        <input asp-for="Job.StreetAddress1" class="form-control" placeholder="Enter street address">
+                        <span asp-validation-for="Job.StreetAddress1" class="text-danger"></span>
                     </div>
-                 <div class="col-md-6">
-                    <label asp-for="Job.BirthDate" class="form-label">Birth Date <span class="text-danger">*</span></label>
-                    <input asp-for="Job.BirthDate" class="form-control" type="date" 
-                           min="1900-01-01"   
-                           max="@DateTime.Now.ToString("yyyy-MM-dd")" />  
-                    <span asp-validation-for="Job.BirthDate" class="text-danger"></span>
+                    <div class="col-md-6">
+                        <label asp-for="Job.StreetAddress2" class="form-label">Street Address 2</label>
+                        <input asp-for="Job.StreetAddress2" class="form-control" placeholder="Enter street address line 2">
+                    </div>
                 </div>
-
-                </div>
-
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label asp-for="Job.CurrentPosition" class="form-label">Current Position</label>
@@ -130,20 +126,21 @@
                     </div>
                 </div>
 
-                <div class="mb-3">
-                    <label asp-for="Job.SpecializationArea" class="form-label">Specialization Area</label>
-                    <input asp-for="Job.SpecializationArea" class="form-control" placeholder="Enter your specialization area">
-                    <span asp-validation-for="Job.SpecializationArea" class="text-danger"></span>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label asp-for="Job.SpecializationArea" class="form-label">Specialization Area</label>
+                        <input asp-for="Job.SpecializationArea" class="form-control" placeholder="Enter your specialization area">
+                        <span asp-validation-for="Job.SpecializationArea" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="Job.Picture" class="form-label">Profile Picture <span class="text-danger">*</span></label>
+                        <input asp-for="Job.Picture" class="form-control" type="file">
+                        <span asp-validation-for="Job.Picture" class="text-danger"></span>
+                    </div>
                 </div>
-
-                <div class="mb-3">
-                    <label asp-for="Job.Picture" class="form-label">Profile Picture <span class="text-danger">*</span></label>
-                    <input asp-for="Job.Picture" class="form-control" type="file"  >
-                    <span asp-validation-for="Job.Picture" class="text-danger"></span>
-                </div>
-
                 <div class="text-center  ">
-                    <button type="submit" class="btn btn-success ">Submit</button>
+                    <button asp-page="Index" class="btn btn-secondary mr-3">Back</button>
+                    <button type="submit" class="btn btn-success ml-3">Submit</button>
                 </div>
             </form>
         </div>

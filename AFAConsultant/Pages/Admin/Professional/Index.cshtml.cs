@@ -15,20 +15,30 @@ namespace AFAConsultant.Pages.Admin.Professional
 		{
 			db = _db;
 		}
-		public async Task OnGetAsync()
+		public async Task<IActionResult> OnGetAsync()
 		{
-			try
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
+            try
 			{
 				Professionals = await db.tbl_professionals.ToListAsync();
+				return Page();
 			}
 			catch (Exception ex)
 			{
 				Professionals = new List<Professionals>();
+				return Page();
 			}
 		}
 		public IActionResult OnGetDelete(int id)
 		{
-			try
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
+            try
 			{
 				Professional = db.tbl_professionals.Where(x => x.Id == id).FirstOrDefault();
 				db.tbl_professionals.Remove(Professional);

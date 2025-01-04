@@ -18,11 +18,19 @@ namespace AFAConsultant.Pages.Admin.WebSettings
 
         public IActionResult OnGet()
         {
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
             settings = db.tbl_settings.FirstOrDefault();
             return Page();
         }
         public IActionResult OnPost(Settings settings)
         {
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
             try
             {
                 Settings update = new();

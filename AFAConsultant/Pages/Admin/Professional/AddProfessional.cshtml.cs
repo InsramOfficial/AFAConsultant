@@ -15,12 +15,20 @@ namespace AFAConsultant.Pages.Admin.Professional
             db = _db;
             env = _env;
         }
-        public void OnGet()
+        public IActionResult OnGet()
         {
-
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
+            return Page();
         }
         public IActionResult OnPost(Professionals Professional)
         {
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
             if (!ModelState.IsValid)
             {
                 TempData["info"] = "Please Insert Correct Data";

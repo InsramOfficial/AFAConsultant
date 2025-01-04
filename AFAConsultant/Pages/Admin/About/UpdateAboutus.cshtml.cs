@@ -15,13 +15,22 @@ namespace AFAConsultant.Pages.Admin.About
         {
             db = _db;
         }
-        public async Task OnGet()
+        public async Task<IActionResult> OnGetAsync()
         {
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
             aboutus = await db.tbl_aboutus.FirstOrDefaultAsync();
+            return Page();
         }
 
         public IActionResult Onpost(Aboutus aboutus)
         {
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
             if (!ModelState.IsValid)
             {
                 TempData["info"] = "Please Insert Correct data";

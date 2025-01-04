@@ -16,9 +16,14 @@ namespace AFAConsultant.Pages.Admin.JobApplications
             this.env = env;
         }
         public Job Job { get; set; }
-        public void OnGet(int id)
+        public IActionResult OnGet(int id)
         {
+            if (!(HttpContext.Session.GetString("flag") == "true"))
+            {
+                return RedirectToPage("/Admin/Login");
+            }
             Job = db.tbl_job.Where(s => s.Id == id).FirstOrDefault();
+            return Page();
         }
     }
 }
