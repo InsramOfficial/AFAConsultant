@@ -107,14 +107,14 @@
                         <label asp-for="Job.Email" class="form-label">Email <span class="text-danger">*</span></label>
                         <input asp-for="Job.Email" class="form-control" placeholder="Enter email address"  >
                         <span asp-validation-for="Job.Email" class="text-danger"></span>
-                    </div>
+                    </div>l
                  <div class="col-md-6">
-    <label asp-for="Job.BirthDate" class="form-label">Birth Date <span class="text-danger">*</span></label>
-    <input asp-for="Job.BirthDate" class="form-control" type="date" 
-           min="1900-01-01"   
-           max="@DateTime.Now.ToString("yyyy-MM-dd")" />  
-    <span asp-validation-for="Job.BirthDate" class="text-danger"></span>
-</div>
+                    <label asp-for="Job.BirthDate" class="form-label">Birth Date <span class="text-danger">*</span></label>
+                    <input asp-for="Job.BirthDate" class="form-control" type="date" 
+                           min="1900-01-01"   
+                           max="@DateTime.Now.ToString("yyyy-MM-dd")" />  
+                    <span asp-validation-for="Job.BirthDate" class="text-danger"></span>
+                </div>
 
                 </div>
 
