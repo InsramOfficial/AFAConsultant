@@ -22,6 +22,8 @@ namespace AFAConsultant.Pages
             Job.PicUrl = "null";
         }
 
+        
+
         public IActionResult OnPost(Job Job)
         {
             if (!ModelState.IsValid)
@@ -49,6 +51,11 @@ namespace AFAConsultant.Pages
                 TempData["error"] = "Error while submitting application try again later";
                 return Page();
             }
+        }
+
+        public IActionResult OnPostBack()
+        {
+            return RedirectToPage("/Index");
         }
     }
 }
