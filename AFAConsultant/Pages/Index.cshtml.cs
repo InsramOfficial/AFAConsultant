@@ -2,6 +2,7 @@
 using AFAConsultant.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace AFAConsultant.Pages
 {
@@ -10,17 +11,27 @@ namespace AFAConsultant.Pages
         private readonly ILogger<IndexModel> _logger;
         private readonly AppdbContext db;
         public QueryMessage message { get; set; }
+        public Aboutus Aboutus { get; set; }
+        public Contactus Contactus { get; set; }
+        public IEnumerable<Countries> Countries { get; set; }
+        public IEnumerable<Professionals> Professionals { get; set; }
+        public IEnumerable<Review> Reviews { get; set; }
         public List<Slider> slider { get; set; }
-        public IndexModel(ILogger<IndexModel> logger,AppdbContext _db)
+        public IndexModel(ILogger<IndexModel> logger, AppdbContext _db)
         {
             db = _db;
             _logger = logger;
         }
-        public void OnGet()
+        public async Task OnGetAsync()
         {
-            slider = db.tbl_slider.ToList();
+            Aboutus = await db.tbl_aboutus.FirstOrDefaultAsync();
+            Contactus = await db.tbl_contactus.FirstOrDefaultAsync();
+            Countries = await db.tbl_countries.ToListAsync();
+            Professionals = await db.tbl_professionals.ToListAsync();
+            Reviews = await db.tbl_review.ToListAsync();
+            slider = await db.tbl_slider.ToListAsync();
         }
-       
+
         public IActionResult OnPost(QueryMessage message)
         {
             if (!ModelState.IsValid)

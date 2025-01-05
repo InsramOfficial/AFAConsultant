@@ -33,12 +33,12 @@
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label asp-for="Job.FullName" class="form-label">Full Name <span class="text-danger">*</span></label>
-                        <input asp-for="Job.FullName" class="form-control" placeholder="Enter full name"  >
+                        <input asp-for="Job.FullName" class="form-control" placeholder="Enter full name">
                         <span asp-validation-for="Job.FullName" class="text-danger"></span>
                     </div>
                     <div class="col-md-6">
                         <label asp-for="Job.PhoneNumber" class="form-label">Phone Number <span class="text-danger">*</span></label>
-                        <input asp-for="Job.PhoneNumber" class="form-control" placeholder="Enter phone number"  >
+                        <input asp-for="Job.PhoneNumber" class="form-control" placeholder="Enter phone number">
                         <span asp-validation-for="Job.PhoneNumber" class="text-danger"></span>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                         <label class="form-label">Gender <span class="text-danger">*</span></label>
                         <div class="d-flex">
                             <div class="form-check me-3">
-                                <input asp-for="Job.Gender" class="form-check-input" type="radio" id="male" value="Male"  >
+                                <input asp-for="Job.Gender" class="form-check-input" type="radio" id="male" value="Male">
                                 <label class="form-check-label" for="male">Male</label>
                             </div>
                             <div class="form-check me-3">
@@ -77,29 +77,29 @@
                         <span asp-validation-for="Job.Email" class="text-danger"></span>
                     </div>
                 </div>
-                
+
 
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label asp-for="Job.Country" class="form-label">Country <span class="text-danger">*</span></label>
-                        <input asp-for="Job.Country" class="form-control" placeholder="Enter your country"  >
+                        <input asp-for="Job.Country" class="form-control" placeholder="Enter your country">
                         <span asp-validation-for="Job.Country" class="text-danger"></span>
                     </div>
                     <div class="col-md-6">
                         <label asp-for="Job.City" class="form-label">City <span class="text-danger">*</span></label>
-                        <input asp-for="Job.City" class="form-control" placeholder="Enter your city"  >
+                        <input asp-for="Job.City" class="form-control" placeholder="Enter your city">
                         <span asp-validation-for="Job.City" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label asp-for="Job.Province" class="form-label">Province <span class="text-danger">*</span></label>
-                        <input asp-for="Job.Province" class="form-control" placeholder="Enter your province"  >
+                        <input asp-for="Job.Province" class="form-control" placeholder="Enter your province">
                         <span asp-validation-for="Job.Province" class="text-danger"></span>
                     </div>
                     <div class="col-md-6">
                         <label asp-for="Job.PostalCode" class="form-label">Postal Code <span class="text-danger">*</span></label>
-                        <input asp-for="Job.PostalCode" class="form-control" placeholder="Enter postal code"  >
+                        <input asp-for="Job.PostalCode" class="form-control" placeholder="Enter postal code">
                         <span asp-validation-for="Job.PostalCode" class="text-danger"></span>
                     </div>
                 </div>
@@ -118,7 +118,7 @@
                     <div class="col-md-6">
                         <label asp-for="Job.CurrentPosition" class="form-label">Current Position</label>
                         <input asp-for="Job.CurrentPosition" class="form-control" placeholder="Enter your current position">
-                        <input type="hidden" asp-for="Job.PicUrl"  />
+                        <input type="hidden" asp-for="Job.PicUrl" />
                     </div>
                     <div class="col-md-6">
                         <label asp-for="Job.YearsOfExperience" class="form-label">Years of Experience</label>
@@ -138,15 +138,11 @@
                         <span asp-validation-for="Job.Picture" class="text-danger"></span>
                     </div>
                 </div>
-                <div class="text-center  ">
+                <div class="text-center ">
+                    <button asp-page="/jobapplication" asp-page-handler="Back" class="btn btn-secondary mr-3">Back</button>
                     <button type="submit" class="btn btn-success ml-3">Submit</button>
                 </div>
             </form>
-            <div class="text-center">
-                <form method="post" asp-page-handler="Back">
-                    <button asp-page="Index" class="btn btn-secondary mr-3">Back</button>
-                </form>
-            </div>
         </div>
 
     </div>

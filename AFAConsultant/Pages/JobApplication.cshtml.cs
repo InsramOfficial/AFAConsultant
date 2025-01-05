@@ -22,7 +22,7 @@ namespace AFAConsultant.Pages
             Job.PicUrl = "null";
         }
 
-        
+
 
         public IActionResult OnPost(Job Job)
         {
@@ -52,6 +52,7 @@ namespace AFAConsultant.Pages
                 return Page();
             }
         }
+
         public IActionResult OnPostBack()
         {
             return RedirectToPage("/Index");
