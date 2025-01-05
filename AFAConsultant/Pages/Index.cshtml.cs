@@ -10,6 +10,7 @@ namespace AFAConsultant.Pages
         private readonly ILogger<IndexModel> _logger;
         private readonly AppdbContext db;
         public QueryMessage message { get; set; }
+
         public IndexModel(ILogger<IndexModel> logger,AppdbContext _db)
         {
             db = _db;
