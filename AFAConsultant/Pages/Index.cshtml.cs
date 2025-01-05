@@ -10,7 +10,7 @@ namespace AFAConsultant.Pages
         private readonly ILogger<IndexModel> _logger;
         private readonly AppdbContext db;
         public QueryMessage message { get; set; }
-
+        public List<Slider> slider { get; set; }
         public IndexModel(ILogger<IndexModel> logger,AppdbContext _db)
         {
             db = _db;
@@ -18,8 +18,9 @@ namespace AFAConsultant.Pages
         }
         public void OnGet()
         {
-
+            slider = db.tbl_slider.ToList();
         }
+       
         public IActionResult OnPost(QueryMessage message)
         {
             if (!ModelState.IsValid)

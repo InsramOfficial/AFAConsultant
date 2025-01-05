@@ -22,6 +22,8 @@ namespace AFAConsultant.Pages
             Job.PicUrl = "null";
         }
 
+        
+
         public IActionResult OnPost(Job Job)
         {
             if (!ModelState.IsValid)
