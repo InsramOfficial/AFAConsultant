@@ -139,10 +139,14 @@
                     </div>
                 </div>
                 <div class="text-center  ">
-                    <button asp-page="Index" class="btn btn-secondary mr-3">Back</button>
                     <button type="submit" class="btn btn-success ml-3">Submit</button>
                 </div>
             </form>
+            <div class="text-center">
+                <form method="post" asp-page-handler="Back">
+                    <button asp-page="Index" class="btn btn-secondary mr-3">Back</button>
+                </form>
+            </div>
         </div>
 
     </div>

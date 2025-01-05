@@ -50,5 +50,9 @@ namespace AFAConsultant.Pages
                 return Page();
             }
         }
+        public IActionResult OnPostBack()
+        {
+            return RedirectToPage("/Index");
+        }
     }
 }
