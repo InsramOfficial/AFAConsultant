@@ -3,7 +3,7 @@
 @{
     Layout = null;
 
-    ViewData["title"] = "Login - AFAConsultant";
+    // ViewData["title"] = "Login - AFAConsultant";
 }
 <title>@ViewData["Title"]</title>
 <!DOCTYPE html>
@@ -25,6 +25,7 @@
     <!-- Custom styles for this template-->
     <link href="~/Admin_files/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="~/Admin_files/css/ToastStyleSheet.css" rel="stylesheet">
+    @await Component.InvokeAsync("Icon")
     <style>
 
 
@@ -36,7 +37,6 @@
 
     </style>
 </head>
-
 <body class="bg-gradient-primary">
 
     <div class="container p-5">
