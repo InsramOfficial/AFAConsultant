@@ -26,16 +26,6 @@
     <link href="~/Admin_files/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="~/Admin_files/css/ToastStyleSheet.css" rel="stylesheet">
     @await Component.InvokeAsync("Icon")
-    <style>
-
-
-        .bg-login-image {
-            background: url("https://img.freepik.com/free-vector/login-concept-illustration_114360-739.jpg?t=st=1732293377~exp=1732296977~hmac=2ed8ecf7c0eadb2722f7640cec26b0f4987ae534d302eab1ba6fa693414ba97f&w=740");
-            background-position: center;
-            background-size: cover;
-        }
-
-    </style>
 </head>
 <body class="bg-gradient-primary">
 
@@ -48,7 +38,7 @@
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            @await Component.InvokeAsync("Login")
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
