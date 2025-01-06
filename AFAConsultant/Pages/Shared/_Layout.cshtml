@@ -30,6 +30,30 @@
     <link href="~/user/css/style.css" rel="stylesheet">
     @* Toast CSS *@
     <link href="~/Admin_files/css/ToastStyleSheet.css" rel="stylesheet">
+    @await Component.InvokeAsync("Icon")
+
+    <style>
+        .icon-hover {
+            color: #7ED956; /* Primary color of the icon */
+            transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition */
+        }
+
+            .icon-hover:hover {
+                color: black; /* Change icon color to white on hover */
+                transform: translateX(5px); /* Move icon slightly to the right */
+            }
+
+        .btn {
+            background: none; /* Ensure no background color on button */
+            border: none; /* Remove border */
+            padding-right: 20px; /* No padding for clean alignment */
+            margin-right: 80px; /* Add space between icons */
+        }
+
+            .btn:last-child {
+                margin-right: 0;
+            }
+    </style>
 </head>
 
 <body>
